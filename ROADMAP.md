@@ -33,7 +33,7 @@ Make the demonstrator robust enough for others to build on.
 - 🔜 Deep links on static hosts ([#4](https://github.com/WaterUptime/WaterUptime-Frontend/issues/4))
 
 **Release hygiene**
-- 📋 Tagged releases for both repositories, recorded in the [compatibility table](README.md#compatibility)
+- ✅ `v0.1.0` tagged in both repositories and recorded in the [compatibility table](README.md#compatibility)
 
 **Exit:** a reviewer can run the whole workflow on testnet from the web app with their own wallet.
 

@@ -1,6 +1,6 @@
 # Contract state machine
 
-This describes the `water_uptime` Soroban contract as of [`ef23869`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/ef23869). The **code is the source of truth**: [`contracts/water_uptime/src/lib.rs`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/contracts/water_uptime/src/lib.rs). The full interface reference is in the contract repo's [`docs/CONTRACT_INTERFACE.md`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/CONTRACT_INTERFACE.md).
+This describes the `water_uptime` Soroban contract as of [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.0). The **code is the source of truth**: [`contracts/water_uptime/src/lib.rs`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/contracts/water_uptime/src/lib.rs). The full interface reference is in the contract repo's [`docs/CONTRACT_INTERFACE.md`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/CONTRACT_INTERFACE.md).
 
 ## Statuses
 

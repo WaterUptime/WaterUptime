@@ -92,11 +92,11 @@ Requires Rust (stable) and the [Stellar CLI](https://developers.stellar.org/docs
 
 ## Compatibility
 
-Versions that have been run together. Neither repository has tagged releases yet, so entries use commit SHAs.
+Versions that have been run together. Use these tags when checking out both repositories.
 
 | Frontend | Contract (source) | Testnet contract ID | Tested | How it was tested |
 |---|---|---|---|---|
-| `main` @ [`35cee32`](https://github.com/WaterUptime/WaterUptime-Frontend/commit/35cee32) (v0.1.0) | `main` @ [`ef23869`](https://github.com/WaterUptime/WaterUptime-SmartContract/commit/ef23869) (code from `f31863f`) | `CDRNO3OO3JCIWRNJIDRPH3UQ6ZX7GRTDQUPMJP4B5IVKUMNUNVHC3ZQO` | 2026-10-27 | Testnet mode loaded jobs, history and water points from the deployed contract in headless Chrome (read-only). Demo-mode rules checked against a port of the contract's test suite. Writes from the app are not tested yet, because wallet signing isn't built. |
+| [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-Frontend/tree/v0.1.0) (`35cee32`) | [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.0) (`ef23869`) | `CDRNO3OO3JCIWRNJIDRPH3UQ6ZX7GRTDQUPMJP4B5IVKUMNUNVHC3ZQO` | 2026-10-27 | Testnet mode loaded jobs, history and water points from the deployed contract in headless Chrome (read-only). Demo-mode rules checked against a port of the contract's test suite. Writes from the app are not tested yet, because wallet signing isn't built. |
 
 **Adding a row:** when either side changes the contract interface (functions, types, errors or events), or a new contract is deployed, run the frontend against it and add a row with both SHAs (or tags), the contract ID, the date, and what you checked. Never remove old rows. See [CONTRIBUTING.md](CONTRIBUTING.md#updating-the-compatibility-table).
 
