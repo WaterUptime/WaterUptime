@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/WaterUptime/WaterUptime/security/advisories/new
+    about: Please report vulnerabilities privately, never in a public issue.
+  - name: Smart contract issues
+    url: https://github.com/WaterUptime/WaterUptime-SmartContract/issues
+    about: Bugs and features in the Soroban contract.
+  - name: Frontend issues
+    url: https://github.com/WaterUptime/WaterUptime-Frontend/issues
+    about: Bugs and features in the web app.

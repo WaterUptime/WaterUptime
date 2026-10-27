@@ -1,0 +1,57 @@
+name: Research finding
+description: Share an anonymised finding from talking to water-service stakeholders.
+title: "research: "
+labels: ["research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Findings from real stakeholders decide whether WaterUptime should continue. See the [user research plan](https://github.com/WaterUptime/WaterUptime/blob/main/docs/user-research.md).
+
+        **Anonymise first.** This issue is public and permanent. Describe people by role and context only (e.g. "technician, rural LGA"). No names, phone numbers, village names, exact locations or photos of people.
+  - type: dropdown
+    id: role
+    attributes:
+      label: Who was it?
+      options:
+        - Community water committee / monitor
+        - Technician / service provider
+        - LGA WASH staff
+        - NGO / implementing partner
+        - Funder / programme manager
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Context (anonymised)
+      placeholder: "e.g. peri-urban LGA, solar boreholes, NGO-funded maintenance"
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: What did you learn?
+      description: Focus on what actually happened in a recent fault (steps, who, how long, what was recorded) rather than opinions about the idea.
+    validations:
+      required: true
+  - type: dropdown
+    id: hypothesis
+    attributes:
+      label: Does this support or contradict the problem hypothesis?
+      options:
+        - Supports
+        - Contradicts
+        - Mixed / unclear
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent and privacy
+      options:
+        - label: The participant agreed to their (anonymised) input being used.
+          required: true
+        - label: This issue contains no personal or identifying information.
+          required: true
