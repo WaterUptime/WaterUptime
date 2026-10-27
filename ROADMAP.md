@@ -16,7 +16,7 @@ Show the full fault-to-closure workflow with synthetic data on testnet.
 
 ## M1: Hardening and contributor wave 🚧
 
-Make the demonstrator robust enough for others to build on.
+Make the demonstrator robust enough for others to build on. Issue sizes, dependencies and the cycle plan are in the [Drips Wave backlog](docs/drips-wave-backlog.md).
 
 **Contract**
 - 🔜 Configurable role-separation policy ([#2](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/2))

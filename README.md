@@ -124,6 +124,7 @@ Each stage has a decision gate. → [Implementation pathway](docs/implementation
 | [User research](docs/user-research.md) | Discovery plan, interview guide, consent, findings log |
 | [Implementation pathway](docs/implementation-pathway.md) | Staged route from prototype to a responsible pilot |
 | [Roadmap](ROADMAP.md) | Milestones and decision gates |
+| [Drips Wave backlog](docs/drips-wave-backlog.md) | Contributor issues, dependencies and the Wave approval checklist |
 
 ## Contributing
 
