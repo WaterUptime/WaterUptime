@@ -2,7 +2,7 @@
 
 Contributor backlog for [Drips Wave](https://www.drips.network/) cycles. It tracks which issues are ready, how they fit together, and what still has to happen before WaterUptime applies to a Wave.
 
-Last updated: 2026-10-27, against contract and frontend `v0.1.0`.
+Last updated: 2026-10-27, against contract `v0.1.1` and frontend `v0.1.0`.
 
 > Rewards follow the official rules of the Wave programme only. Maintainers never promise payment outside them. Read the current Drips maintainer docs before each cycle; programme details and labels change.
 
@@ -19,7 +19,8 @@ Last updated: 2026-10-27, against contract and frontend `v0.1.0`.
 | Demo uses synthetic data and Stellar testnet only | ✅ | [Testnet deployment](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/v0.1.0/docs/TESTNET.md); app labels demo and testnet data |
 | At least 4–6 scoped issues with acceptance criteria and test expectations | ✅ | 10 open issues (below) |
 | Contribution guide, Code of Conduct, private security reporting | ✅ | [Org `.github`](https://github.com/WaterUptime/.github); private vulnerability reporting enabled on all repositories |
-| Tagged, compatible releases | ✅ | `v0.1.0` in both repositories; [compatibility table](../README.md#compatibility) |
+| Tagged, compatible releases | ✅ | Contract `v0.1.1`, frontend `v0.1.0`; [compatibility table](../README.md#compatibility) |
+| Deployed contract source-verified on an explorer | ✅ | [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX) shows the source as verified; attested GitHub Actions build |
 | Confirm the current Wave programme and cycle | ☐ | Maintainer action |
 | Apply through the Drips app; wait for repository approval | ☐ | Maintainer action; organisers control approval |
 | Add the programme's label to the issues selected for the cycle | ☐ | After approval |

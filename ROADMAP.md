@@ -34,6 +34,7 @@ Make the demonstrator robust enough for others to build on. Issue sizes, depende
 
 **Release hygiene**
 - ✅ `v0.1.0` tagged in both repositories and recorded in the [compatibility table](README.md#compatibility)
+- ✅ Contract `v0.1.1`: attested release build, testnet deployment source-verified on Stellar Expert
 
 **Exit:** a reviewer can run the whole workflow on testnet from the web app with their own wallet.
 
