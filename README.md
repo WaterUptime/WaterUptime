@@ -11,7 +11,7 @@ This repository is the project hub: product docs, architecture, roadmap and the 
 | Repository | What's inside |
 |---|---|
 | **[WaterUptime-SmartContract](https://github.com/WaterUptime/WaterUptime-SmartContract)** | Soroban (Rust) contract that enforces roles and the repair state machine, plus tests, testnet deployment details and a demo script |
-| **[WaterUptime-Frontend](https://github.com/WaterUptime/WaterUptime-Frontend)** | React + TypeScript web app: an interactive demo and a read-only view of the live testnet contract |
+| **[WaterUptime-Frontend](https://github.com/WaterUptime/WaterUptime-Frontend)** | React + TypeScript web app: an interactive demo, and the live testnet contract with actions signed in a Freighter wallet |
 
 ## How it works
 
@@ -53,7 +53,7 @@ Details: [contract state machine](docs/contract-state-machine.md) · [architectu
 | Web app: overview, water points, jobs, verification queue, fault reporting | ✅ Implemented (demo data) | Frontend |
 | Demo mode that enforces the contract's rules in the browser | ✅ Implemented and tested | Frontend |
 | Read-only view of the live testnet contract | ✅ Implemented | Frontend |
-| Signing actions with a wallet on testnet | 🔜 Planned ([Frontend#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) | Frontend |
+| Signing actions with a wallet on testnet | ✅ Implemented in frontend `v0.2.0` (Freighter). Tested end to end on testnet with a scripted wallet; a manual Freighter check is pending ([Frontend#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) | Frontend |
 | Evidence attachments (photos, logs) with fingerprints | 🔜 Planned ([Frontend#3](https://github.com/WaterUptime/WaterUptime-Frontend/issues/3)) | Frontend |
 | Admin handover, configurable role-separation policy, job index | 🔜 Planned ([Contract#2–4](https://github.com/WaterUptime/WaterUptime-SmartContract/issues)) | Contract |
 | Off-chain evidence store with access control | 📋 Design needed | — |
@@ -74,7 +74,7 @@ npm run dev            # open http://localhost:5173
 ```
 
 1. **Demo data** (default): use the **Acting as** selector in the header to switch roles, then report a fault, assign it, submit a repair, verify it and close it. Nothing leaves your browser.
-2. **Testnet**: switch the data source to read the live testnet contract (read-only).
+2. **Testnet**: switch the data source to read the live testnet contract. Connect [Freighter](https://www.freighter.app/) (set to Testnet) to sign the actions your account is allowed to take; every action is a real transaction, and the app says so. The frontend README covers [wallet setup](https://github.com/WaterUptime/WaterUptime-Frontend#signing-with-a-wallet-testnet-only).
 
 Requires Node 24.
 
@@ -93,11 +93,15 @@ Requires Rust (stable) and the [Stellar CLI](https://developers.stellar.org/docs
 
 ## Compatibility
 
-Versions that have been run together, newest first. Use these tags when checking out both repositories. The first row is the current shared deployment.
+Versions that have been run together, newest first. Use these tags when checking out both repositories.
+
+**Current releases:** frontend [`v0.2.0`](https://github.com/WaterUptime/WaterUptime-Frontend/releases/tag/v0.2.0) · contract [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.1.1_water_uptime_cli28.1.0) · testnet contract `CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX`. The first row records how this combination was tested.
 
 | Frontend | Contract (source) | Testnet contract ID | Tested | How it was tested |
 |---|---|---|---|---|
-| [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-Frontend/tree/v0.1.0) (`35cee32`) with `VITE_CONTRACT_ID` override | [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.1) (`38760fa`, [attested build](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.1.1_water_uptime_cli28.1.0)) | [`CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX`](https://stellar.expert/explorer/testnet/contract/CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX) (source verified) | 2026-10-27 | Testnet mode loaded both demo jobs (closed with 7 events; cancelled) from the deployed contract in headless Chrome, with no console errors; the app's contract link used the new ID. Read-only; wallet writes not built yet. |
+| [`v0.2.0`](https://github.com/WaterUptime/WaterUptime-Frontend/releases/tag/v0.2.0) (`5bbeff7`) | [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.1) (`38760fa`, [attested build](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.1.1_water_uptime_cli28.1.0)) | [`CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX`](https://stellar.expert/explorer/testnet/contract/CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX) (source verified) | 2026-10-28 | **Reads and signed writes.** Production build of the tag in headless Chrome. `npm run e2e:wallet` ran two jobs: job 11 closed after one rework cycle; job 12 was cancelled after the contract rejected an unauthorised submit. That covers all eight write functions in 12 wallet-signed transactions, each confirmed over RPC, with 0 console errors. Demo actions sent nothing; a wallet on the public network was refused; a declined signature changed nothing. The wallet was a scripted stand-in for Freighter (same page protocol, synthetic `wu-*` keys); a manual Freighter check is pending ([Frontend#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)). [Release notes](https://github.com/WaterUptime/WaterUptime-Frontend/releases/tag/v0.2.0) list each transaction. |
+| [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-Frontend/releases/tag/v0.1.1) (`f71db49`) | [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.1) (`38760fa`) | `CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX` | 2026-10-28 | Production build of the tag in headless Chrome: the sidebar reports v0.1.1, the app targets this ID by default, all 10 on-chain jobs load, and there were no console errors. Read-only. |
+| [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-Frontend/tree/v0.1.0) (`35cee32`) with `VITE_CONTRACT_ID` override (superseded by frontend `v0.1.1`) | [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.1) (`38760fa`, [attested build](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.1.1_water_uptime_cli28.1.0)) | [`CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX`](https://stellar.expert/explorer/testnet/contract/CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX) (source verified) | 2026-10-27 | Testnet mode loaded both demo jobs (closed with 7 events; cancelled) from the deployed contract in headless Chrome, with no console errors; the app's contract link used the new ID. Read-only; wallet writes not built yet. |
 | [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-Frontend/tree/v0.1.0) (`35cee32`) | [`v0.1.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.0) (`ef23869`) | `CDRNO3OO3JCIWRNJIDRPH3UQ6ZX7GRTDQUPMJP4B5IVKUMNUNVHC3ZQO` (superseded by v0.1.1) | 2026-10-27 | Testnet mode loaded jobs, history and water points from the deployed contract in headless Chrome (read-only). Demo-mode rules checked against a port of the contract's test suite. Writes from the app are not tested yet, because wallet signing isn't built. |
 
 **Adding a row:** when either side changes the contract interface (functions, types, errors or events), or a new contract is deployed, run the frontend against it and add a row with both SHAs (or tags), the contract ID, the date, and what you checked. Never remove old rows. See [CONTRIBUTING.md](CONTRIBUTING.md#updating-the-compatibility-table).

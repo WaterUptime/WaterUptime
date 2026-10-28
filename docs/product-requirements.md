@@ -41,7 +41,7 @@ All MVP users are fictional, and all accounts are testnet accounts.
 | F8 | Duplicate, out-of-order and unauthorised actions are rejected with specific errors | ✅ |
 | F9 | Web app shows status, roles, timestamps and audit history in plain language | ✅ |
 | F10 | Web app explains contract errors in plain language | ✅ |
-| F11 | Users sign actions with their own wallet on testnet | 🔜 |
+| F11 | Users sign actions with their own wallet on testnet | ✅ (frontend `v0.2.0`) |
 | F12 | Evidence files are fingerprinted client-side and stored off-chain under access control | 🔜 (client side) · 📋 (store) |
 | F13 | Optional stricter role separation (e.g. verifier ≠ reporter) | 🔜 |
 | F14 | Coordinator role can be handed over safely | 🔜 |

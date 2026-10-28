@@ -31,7 +31,7 @@ Repository: [WaterUptime-Frontend](https://github.com/WaterUptime/WaterUptime-Fr
 | Layer | Path | Responsibility |
 |---|---|---|
 | Domain | `src/domain/` | Contract-mirroring types, state-machine port, error messages, hashing |
-| Data | `src/data/` | Demo seed and store; read-only testnet loader; config |
+| Data | `src/data/` | Demo seed and store; testnet reads and signed writes (`testnet.ts`); Freighter connection (`wallet.ts`); config |
 | UI | `src/components/`, `src/pages/` | Role-aware pages, audit timeline, lifecycle stepper |
 
 **Data sources**
@@ -39,7 +39,7 @@ Repository: [WaterUptime-Frontend](https://github.com/WaterUptime/WaterUptime-Fr
 | Mode | Reads from | Writes to |
 |---|---|---|
 | Demo (default) | Synthetic seed in `localStorage` | The same; enforced by `workflow.ts` |
-| Testnet | Contract, via `@stellar/stellar-sdk` `contract.Client.from` (simulated reads, no wallet) | Nothing yet ([frontend #2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) |
+| Testnet | Contract, via `@stellar/stellar-sdk` `contract.Client.from` (simulated reads, no wallet) | Contract, from frontend `v0.2.0`: simulate, sign in Freighter, submit, wait for the ledger, reload. Typed descriptions stay in the browser's `localStorage`; only fingerprints go on-chain |
 
 The SDK is loaded with a dynamic `import()` only when testnet mode opens. The default bundle is ~100 KB gzipped; the SDK chunk adds ~130 KB gzipped.
 

@@ -46,7 +46,7 @@ A Stellar address that acts repeatedly links all of its actions together. Anyone
 | Collusion | Technician and verifier agree to fake a repair | None on-chain | Independent spot checks; community confirmation; rotation of verifiers |
 | False evidence | Old or staged photo | Fingerprint prevents later edits | Evidence capture rules; EXIF stripping ([frontend #3](https://github.com/WaterUptime/WaterUptime-Frontend/issues/3)); human review |
 | Coordinator key loss or compromise | Admin key stolen | — | Two-step handover ([contract #3](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/3)); key-management plan before any pilot |
-| Wrong network | Signing on mainnet by mistake | App is read-only; testnet config only | Signing must refuse non-testnet ([frontend #2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) |
+| Wrong network | Signing on mainnet by mistake | Testnet config only; frontend `v0.2.0` refuses to sign unless Freighter's network passphrase is testnet, and re-checks it and the selected account at every signature | Manual check with the real Freighter extension ([frontend #2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) |
 | Storage growth / DoS | Endless rework loop | History capped at 50 entries | — |
 | Archived data | Old jobs expire from live state | TTL extended on use | Explicit extension ([contract #6](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/6)) |
 | Re-identification | Guessing a record from its hash | Salted fingerprints | Salt must stay off-chain and access-controlled |

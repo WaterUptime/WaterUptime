@@ -28,13 +28,14 @@ Make the demonstrator robust enough for others to build on. Issue sizes, depende
 - 🔜 TypeScript bindings in CI ([#8](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/8))
 
 **Frontend**
-- 🔜 Wallet signing on testnet ([#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2))
+- ✅ Wallet signing on testnet: frontend `v0.2.0`, end-to-end walkthrough on testnet; manual Freighter check pending ([#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2))
 - 🔜 Evidence attachments with client-side fingerprints ([#3](https://github.com/WaterUptime/WaterUptime-Frontend/issues/3))
 - 🔜 Deep links on static hosts ([#4](https://github.com/WaterUptime/WaterUptime-Frontend/issues/4))
 
 **Release hygiene**
 - ✅ `v0.1.0` tagged in both repositories and recorded in the [compatibility table](README.md#compatibility)
 - ✅ Contract `v0.1.1`: attested release build, testnet deployment source-verified on Stellar Expert
+- ✅ Frontend `v0.1.1` (targets that deployment) and `v0.2.0` (wallet signing) tagged, released and recorded in the compatibility table
 
 **Exit:** a reviewer can run the whole workflow on testnet from the web app with their own wallet.
 

@@ -2,7 +2,7 @@
 
 Contributor backlog for [Drips Wave](https://www.drips.network/) cycles. It tracks which issues are ready, how they fit together, and what still has to happen before WaterUptime applies to a Wave.
 
-Last updated: 2026-10-27, against contract `v0.1.1` and frontend `v0.1.0`.
+Last updated: 2026-10-28, against contract `v0.1.1` and frontend `v0.2.0`.
 
 > Rewards follow the official rules of the Wave programme only. Maintainers never promise payment outside them. Read the current Drips maintainer docs before each cycle; programme details and labels change.
 
@@ -19,7 +19,7 @@ Last updated: 2026-10-27, against contract `v0.1.1` and frontend `v0.1.0`.
 | Demo uses synthetic data and Stellar testnet only | ✅ | [Testnet deployment](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/v0.1.0/docs/TESTNET.md); app labels demo and testnet data |
 | At least 4–6 scoped issues with acceptance criteria and test expectations | ✅ | 10 open issues (below) |
 | Contribution guide, Code of Conduct, private security reporting | ✅ | [Org `.github`](https://github.com/WaterUptime/.github); private vulnerability reporting enabled on all repositories |
-| Tagged, compatible releases | ✅ | Contract `v0.1.1`, frontend `v0.1.0`; [compatibility table](../README.md#compatibility) |
+| Tagged, compatible releases | ✅ | Contract `v0.1.1`, frontend `v0.2.0` (and `v0.1.1`); [compatibility table](../README.md#compatibility) |
 | Deployed contract source-verified on an explorer | ✅ | [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX) shows the source as verified; attested GitHub Actions build |
 | Confirm the current Wave programme and cycle | ☐ | Maintainer action |
 | Apply through the Drips app; wait for repository approval | ☐ | Maintainer action; organisers control approval |
@@ -46,7 +46,7 @@ Complexity uses the original backlog's scale: **Trivial**, **Medium** or **High*
 | Issue | Complexity | Labels | Notes |
 |---|---|---|---|
 | [#4 SPA fallback for deep links](https://github.com/WaterUptime/WaterUptime-Frontend/issues/4) | Trivial | `good first issue`, `documentation` | Good first contribution |
-| [#2 Wallet signing in testnet mode](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2) | High | `enhancement`, `security-sensitive` | Biggest single step towards the M1 goal |
+| [#2 Wallet signing in testnet mode](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2) | — | `enhancement`, `security-sensitive` | Implemented in `v0.2.0`; open only for a manual check with the real Freighter extension (maintainer task, not a Wave issue) |
 | [#3 Evidence attachments with fingerprints](https://github.com/WaterUptime/WaterUptime-Frontend/issues/3) | High | `enhancement`, `security-sensitive` | Changes the fingerprint scheme; update the [integration guide](integration-guide.md#fingerprints) |
 
 ## How issues depend on each other
@@ -75,7 +75,7 @@ Pick a mix of sizes, and keep each issue small enough to finish within one cycle
 |---|---|---|
 | Newcomer | #5, #7 | #4 |
 | Medium | #6, #4, #8 | — |
-| Security-sensitive (experienced contributors, careful review) | #2, #3 | #2, #3 |
+| Security-sensitive (experienced contributors, careful review) | #2, #3 | #3 |
 
 Avoid running #2 and #3 in the contract at the same time as large frontend changes to `workflow.ts`. Both touch the same rules, and the follow-up port is easier one change at a time.
 

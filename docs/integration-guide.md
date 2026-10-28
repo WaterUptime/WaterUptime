@@ -105,10 +105,11 @@ A match proves the record is unchanged since it was anchored, not that it is tru
 
 Writing requires signatures from the right role account. Today you can write with:
 
-- the **Stellar CLI** (`stellar contract invoke ... --source <role-key>`), or
-- the contract repo's **demo script**, [`scripts/testnet-demo.sh`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/scripts/testnet-demo.sh), which deploys your own instance where you hold every role.
+- the **Stellar CLI** (`stellar contract invoke ... --source <role-key>`),
+- the contract repo's **demo script**, [`scripts/testnet-demo.sh`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/scripts/testnet-demo.sh), which deploys your own instance where you hold every role, or
+- the **web app** (frontend `v0.2.0` and later) in Testnet mode with [Freighter](https://www.freighter.app/) set to Testnet; see its [wallet setup](https://github.com/WaterUptime/WaterUptime-Frontend#signing-with-a-wallet-testnet-only).
 
-The shared instance's admin key is held by the maintainers. Use your own deployment to experiment. Wallet signing in the web app is planned ([frontend #2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)).
+The shared instance's admin key is held by the maintainers, so a new account can only read there. Use your own deployment to try every role, and point the app at it with `VITE_CONTRACT_ID`.
 
 ## Integrating existing WASH systems
 
