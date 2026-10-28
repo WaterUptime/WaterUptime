@@ -36,7 +36,7 @@ All MVP users are fictional, and all accounts are testnet accounts.
 | F3 | Technician and verifier must be different accounts | ✅ |
 | F4 | Only the assigned technician submits; only the assigned verifier decides | ✅ |
 | F5 | A job closes only from `Verified`; `Closed` and `Cancelled` are final | ✅ |
-| F6 | Every transition appends to an audit history; nothing is erased | ✅ |
+| F6 | Every transition appends to an audit history; nothing is overwritten. Retention is limited (50 entries per job; storage must be kept live; [details](security-and-privacy.md#retention-of-the-audit-trail)) | ✅ |
 | F7 | Every state change emits an event with no personal data | ✅ |
 | F8 | Duplicate, out-of-order and unauthorised actions are rejected with specific errors | ✅ |
 | F9 | Web app shows status, roles, timestamps and audit history in plain language | ✅ |

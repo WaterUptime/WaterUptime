@@ -71,7 +71,7 @@ Read-only: `get_admin`, `is_reporter`, `get_water_point`, `get_job`, `get_job_hi
 6. Only `Verified` can become `Closed`.
 7. `Closed` and `Cancelled` accept no further workflow actions.
 8. Every transition appends exactly one `AuditEntry { action, actor, reference, timestamp }`. Entries are never modified or removed.
-9. A job holds at most **50** audit entries (`MAX_HISTORY_LEN`). Beyond that, actions fail with `HistoryLimitReached`, and the job should be cancelled and reopened.
+9. A job holds at most **50** audit entries (`MAX_HISTORY_LEN`); further actions fail with `HistoryLimitReached`. **Known issue in `v0.1.1`:** close and cancel are subject to the same limit, so a job can get stuck open at 50 entries (after 24 rework cycles, or when approved as its 50th entry). The fix in review ([contract #13](https://github.com/WaterUptime/WaterUptime-SmartContract/pull/13)) keeps room to finish, allowing at most 23 rework cycles, after which the coordinator cancels and a new job is reported.
 10. A failed call changes nothing: Soroban rolls back all writes and events.
 
 ## Errors

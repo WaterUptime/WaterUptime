@@ -79,7 +79,7 @@ stellar events --network testnet \
 RPC nodes keep events for a **limited window** (days, not months). For long-term history, either:
 
 - run an indexer that stores events as they arrive, or
-- read `get_job_history`, which keeps a job's full audit trail on-chain for as long as the job's storage is alive.
+- read `get_job_history`, which returns a job's audit trail (at most 50 entries) for as long as the job's storage is kept live. Plan for archival, restoration and testnet resets; see [retention of the audit trail](security-and-privacy.md#retention-of-the-audit-trail).
 
 ## Fingerprints
 

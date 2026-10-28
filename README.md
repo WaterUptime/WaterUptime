@@ -33,7 +33,12 @@ stateDiagram-v2
 ```
 
 - The technician and the verifier must be **different people**, and only the assigned person can act at each step.
-- Every step is appended to the job's **audit history**, and nothing is erased, including rejected evidence.
+- Every step is appended to the job's **audit history**; nothing is overwritten, including rejected evidence. The history is **not permanent**:
+  - it is capped at 50 entries per job;
+  - it stays readable only while its on-chain storage is kept live (120 days after the last change unless extended, and restorable after that);
+  - a testnet reset erases it.
+
+  See [retention and its limits](docs/security-and-privacy.md#retention-of-the-audit-trail).
 - Names, photos, coordinates and documents stay **off-chain**; only opaque IDs and salted fingerprints go on-chain.
 - The record shows *what an authorised person submitted*. It does **not** by itself prove that a repair physically happened or that water is safe.
 
