@@ -1,6 +1,6 @@
 # Contract state machine
 
-This describes the `water_uptime` Soroban contract as of [`v0.1.1`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.1.1) (contract logic unchanged since `v0.1.0`). The **code is the source of truth**: [`contracts/water_uptime/src/lib.rs`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/contracts/water_uptime/src/lib.rs). The full interface reference is in the contract repo's [`docs/CONTRACT_INTERFACE.md`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/CONTRACT_INTERFACE.md).
+This describes the `water_uptime` Soroban contract as of [`v0.2.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/tree/v0.2.0). The interface is unchanged since `v0.1.0`; `v0.2.0` changed only how the history limit applies. The **code is the source of truth**: [`contracts/water_uptime/src/lib.rs`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/contracts/water_uptime/src/lib.rs). The full interface reference is in the contract repo's [`docs/CONTRACT_INTERFACE.md`](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/CONTRACT_INTERFACE.md).
 
 ## Statuses
 
@@ -71,7 +71,7 @@ Read-only: `get_admin`, `is_reporter`, `get_water_point`, `get_job`, `get_job_hi
 6. Only `Verified` can become `Closed`.
 7. `Closed` and `Cancelled` accept no further workflow actions.
 8. Every transition appends exactly one `AuditEntry { action, actor, reference, timestamp }`. Entries are never modified or removed.
-9. A job holds at most **50** audit entries (`MAX_HISTORY_LEN`); further actions fail with `HistoryLimitReached`. **Known issue in `v0.1.1`:** close and cancel are subject to the same limit, so a job can get stuck open at 50 entries (after 24 rework cycles, or when approved as its 50th entry). The fix in review ([contract #13](https://github.com/WaterUptime/WaterUptime-SmartContract/pull/13)) keeps room to finish, allowing at most 23 rework cycles, after which the coordinator cancels and a new job is reported.
+9. A job holds at most **50** audit entries (`MAX_HISTORY_LEN`), and every action keeps room for the entries the job still needs to close or cancel. So at most 23 rework cycles are accepted; the 24th submission fails with `HistoryLimitReached`, after which the coordinator cancels and a new job is reported. (In `v0.1.1` close and cancel could themselves be refused at the limit, leaving the job stuck open; fixed in [`v0.2.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.2.0_water_uptime_cli28.1.0).) See [retention](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/RETENTION.md).
 10. A failed call changes nothing: Soroban rolls back all writes and events.
 
 ## Errors
@@ -90,7 +90,7 @@ Read-only: `get_admin`, `is_reporter`, `get_water_point`, `get_job`, `get_job_hi
 | 10 | `SameTechnicianAndVerifier` | Role-separation violation |
 | 11 | `NotAssignedTechnician` | Caller isn't the job's technician |
 | 12 | `NotAssignedVerifier` | Caller isn't the job's verifier |
-| 13 | `HistoryLimitReached` | Job has 50 audit entries |
+| 13 | `HistoryLimitReached` | The action would leave too little of the job's 50 entries to close or cancel it |
 
 Authorisation failures from a missing signature are host errors, not contract errors. Apps should explain them as "this account isn't allowed to do that".
 

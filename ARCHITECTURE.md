@@ -46,7 +46,7 @@ flowchart LR
 1. **Minimal on-chain data.** Only random 32-byte IDs, salted fingerprints, addresses, statuses and timestamps.
 2. **Stored admin, not passed-in admin.** Admin-only functions require the signature of the admin stored at initialisation.
 3. **One open job per water point.** This stops duplicate reports. Mistaken reports are cancelled, not faked through to closure.
-4. **Bounded history.** At most 50 audit entries per job, so rework loops can't grow storage without limit. In contract `v0.1.1` a job could reach the limit with no room left to close or cancel it. The fix keeps room for the final steps and is in review ([contract #13](https://github.com/WaterUptime/WaterUptime-SmartContract/pull/13)).
+4. **Bounded history.** At most 50 audit entries per job, so rework loops can't grow storage without limit. Room is always kept for the entries a job needs to close or cancel, so the limit can't leave a job stuck open; that bug in `v0.1.1` was fixed in [contract `v0.2.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.2.0_water_uptime_cli28.1.0).
 5. **Demo mode mirrors the contract.** The frontend's demo runs a port of the state machine with the same rules and errors, tested against the same cases.
 6. **SDK loaded on demand.** The Stellar SDK is loaded only for testnet mode, to keep the default bundle small for low-bandwidth users.
 
