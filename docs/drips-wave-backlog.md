@@ -2,7 +2,7 @@
 
 Contributor backlog for [Drips Wave](https://www.drips.network/) cycles. It tracks which issues are ready, how they fit together, and what still has to happen before WaterUptime applies to a Wave.
 
-Last updated: 2026-10-28, against contract `v0.1.1` and frontend `v0.2.0`.
+Last updated: 2026-10-29, against contract `v0.2.0` and frontend `v0.2.1`.
 
 > Rewards follow the official rules of the Wave programme only. Maintainers never promise payment outside them. Read the current Drips maintainer docs before each cycle; programme details and labels change.
 
@@ -12,15 +12,15 @@ Last updated: 2026-10-28, against contract `v0.1.1` and frontend `v0.2.0`.
 |---|---|---|
 | Public repositories with independent history | ✅ | [Contract](https://github.com/WaterUptime/WaterUptime-SmartContract), [frontend](https://github.com/WaterUptime/WaterUptime-Frontend), [hub](https://github.com/WaterUptime/WaterUptime), all created fresh in this organisation |
 | README states problem hypothesis, MVP, setup, status and non-goals | ✅ | [Hub README](../README.md), plus each repository's README |
-| Contract builds and tests pass in CI | ✅ | fmt, clippy, 35 tests and WASM build on every PR; green on `main` |
+| Contract builds and tests pass in CI | ✅ | fmt, clippy, 39 tests and WASM build on every PR; green on `main` |
 | Frontend builds and tests pass in CI | ✅ | Typecheck, tests and build on every PR; green on `main` |
 | No secrets, personal data or production keys in source control | ✅ | Full git history scanned for secret-key patterns (0 hits); demo data is fictional |
 | Architecture and threat assumptions documented | ✅ | [Architecture](../ARCHITECTURE.md), [security and privacy](security-and-privacy.md) |
 | Demo uses synthetic data and Stellar testnet only | ✅ | [Testnet deployment](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/v0.1.0/docs/TESTNET.md); app labels demo and testnet data |
 | At least 4–6 scoped issues with acceptance criteria and test expectations | ✅ | 10 open issues (below) |
 | Contribution guide, Code of Conduct, private security reporting | ✅ | [Org `.github`](https://github.com/WaterUptime/.github); private vulnerability reporting enabled on all repositories |
-| Tagged, compatible releases | ✅ | Contract `v0.1.1`, frontend `v0.2.0` (and `v0.1.1`); [compatibility table](../README.md#compatibility) |
-| Deployed contract source-verified on an explorer | ✅ | [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX) shows the source as verified; attested GitHub Actions build |
+| Tagged, compatible releases | ✅ | Contract `v0.2.0`, frontend `v0.2.1` (earlier releases listed too); [compatibility table](../README.md#compatibility) |
+| Deployed contract source-verified on an explorer | ✅ | [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z) shows the source as verified; attested GitHub Actions build |
 | Confirm the current Wave programme and cycle | ☐ | Maintainer action |
 | Apply through the Drips app; wait for repository approval | ☐ | Maintainer action; organisers control approval |
 | Add the programme's label to the issues selected for the cycle | ☐ | After approval |

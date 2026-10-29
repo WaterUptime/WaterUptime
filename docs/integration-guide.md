@@ -18,7 +18,7 @@ Read calls are **simulated**: free, with no wallet or signature needed.
 ### With the Stellar CLI
 
 ```bash
-CONTRACT=CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX
+CONTRACT=CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z
 stellar keys generate reader --network testnet --fund     # any funded key works as --source
 
 stellar contract invoke --id $CONTRACT --source reader --network testnet --send=no -- job_count
@@ -34,7 +34,7 @@ stellar contract invoke --id $CONTRACT --source reader --network testnet --send=
 import { contract, Networks } from "@stellar/stellar-sdk";
 
 const client = await contract.Client.from({
-  contractId: "CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX",
+  contractId: "CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z",
   networkPassphrase: Networks.TESTNET,
   rpcUrl: "https://soroban-testnet.stellar.org",
 });
@@ -62,7 +62,7 @@ To generate static TypeScript bindings instead:
 
 ```bash
 stellar contract bindings typescript --network testnet \
-  --contract-id CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX \
+  --contract-id CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z \
   --output-dir packages/water_uptime
 ```
 
@@ -72,7 +72,7 @@ Every state change emits an event (see the [list](contract-state-machine.md#even
 
 ```bash
 stellar events --network testnet \
-  --id CD5V5AJCWEP25CVVFQ3J5E54AFOB6JFYO4MIWBJSIPECMEM3PHZ6TCLX \
+  --id CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z \
   --start-ledger <LEDGER> --count 50 --output json
 ```
 
