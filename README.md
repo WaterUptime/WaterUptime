@@ -48,22 +48,22 @@ Details: [contract state machine](docs/contract-state-machine.md) · [architectu
 
 | Capability | Status | Where |
 |---|---|---|
-| Water-point registry with opaque IDs; activate/deactivate | ✅ Implemented and tested | Contract |
-| Reporter permissions (grant/revoke) | ✅ Implemented and tested | Contract |
-| Full lifecycle with rework loop and cancellation | ✅ Implemented and tested | Contract |
-| Role separation (technician ≠ verifier) and per-step authorisation | ✅ Implemented and tested | Contract |
-| On-chain audit history and lifecycle events | ✅ Implemented and tested | Contract |
-| Shared testnet deployment with demo jobs | ✅ Live on testnet | Contract `docs/TESTNET.md` |
-| Deployed contract source-verified on an explorer (attested build) | ✅ Verified on [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z) | Contract `v0.2.0` |
-| Web app: overview, water points, jobs, verification queue, fault reporting | ✅ Implemented (demo data) | Frontend |
-| Demo mode that enforces the contract's rules in the browser | ✅ Implemented and tested | Frontend |
-| Read-only view of the live testnet contract | ✅ Implemented | Frontend |
-| Signing actions with a wallet on testnet | ✅ Implemented in frontend `v0.2.0` (Freighter). Tested end to end on testnet with a scripted wallet; a manual Freighter check is pending ([Frontend#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) | Frontend |
-| Evidence attachments (photos, logs) with fingerprints | 🔜 Planned ([Frontend#3](https://github.com/WaterUptime/WaterUptime-Frontend/issues/3)) | Frontend |
-| Admin handover, configurable role-separation policy, job index | 🔜 Planned ([Contract#2–4](https://github.com/WaterUptime/WaterUptime-SmartContract/issues)) | Contract |
-| Off-chain evidence store with access control | 📋 Design needed | — |
-| Integration with existing WASH systems (e.g. WASHIMS) | 📋 Only after permission and discovery | — |
-| Payments, mainnet, real data | 🚫 Out of scope for v0 | — |
+| Water-point registry with opaque IDs; activate/deactivate | Implemented and tested | Contract |
+| Reporter permissions (grant/revoke) | Implemented and tested | Contract |
+| Full lifecycle with rework loop and cancellation | Implemented and tested | Contract |
+| Role separation (technician ≠ verifier) and per-step authorisation | Implemented and tested | Contract |
+| On-chain audit history and lifecycle events | Implemented and tested | Contract |
+| Shared testnet deployment with demo jobs | Live on testnet | Contract `docs/TESTNET.md` |
+| Deployed contract source-verified on an explorer (attested build) | Verified on [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDO5G5UK4YLRCBXWJI7GSJYTPXZSZNCAQ4ILAKZHYUBA64QWWCUTF22Z) | Contract `v0.2.0` |
+| Web app: overview, water points, jobs, verification queue, fault reporting | Implemented (demo data) | Frontend |
+| Demo mode that enforces the contract's rules in the browser | Implemented and tested | Frontend |
+| Read-only view of the live testnet contract | Implemented | Frontend |
+| Signing actions with a wallet on testnet | Implemented in frontend `v0.2.0` (Freighter). Tested end to end on testnet with a scripted wallet; a manual Freighter check is pending ([Frontend#2](https://github.com/WaterUptime/WaterUptime-Frontend/issues/2)) | Frontend |
+| Evidence attachments (photos, logs) with fingerprints | Planned ([Frontend#3](https://github.com/WaterUptime/WaterUptime-Frontend/issues/3)) | Frontend |
+| Admin handover, configurable role-separation policy, job index | Planned ([Contract#2–4](https://github.com/WaterUptime/WaterUptime-SmartContract/issues)) | Contract |
+| Off-chain evidence store with access control | Design needed | — |
+| Integration with existing WASH systems (e.g. WASHIMS) | Only after permission and discovery | — |
+| Payments, mainnet, real data | Out of scope for v0 | — |
 
 The full plan is in the [roadmap](ROADMAP.md).
 
