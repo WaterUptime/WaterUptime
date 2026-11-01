@@ -20,9 +20,9 @@ Repository: [WaterUptime-SmartContract](https://github.com/WaterUptime/WaterUpti
 | Kind | Keys | Notes |
 |---|---|---|
 | Instance | `Admin`, `JobCount` | Extended ~30 days on use |
-| Persistent | `Reporter(Address)`, `WaterPoint(id)`, `Job(u64)`, `History(u64)` | Extended ~120 days on read or write |
+| Persistent | `Reporter(Address)`, `WaterPoint(id)`, `Job(u64)`, `History(u64)` | Extended to ~120 days on each write, or a read inside a submitted transaction (simulated reads don't extend) |
 
-Entries nobody touches will eventually be archived and need restoring. Explicit extension is planned ([contract #6](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/6)). Water points are not enumerable on-chain; a per-point job index is planned ([contract #4](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/4)).
+Entries nobody touches are eventually archived. `scripts/audit-export.sh` in the contract repository extends, exports, verifies and restores them ([RETENTION.md](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/RETENTION.md)); in-contract extension entry points are planned ([contract #6](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/6)). Water points are not enumerable on-chain; a per-point job index is planned ([contract #4](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/4)).
 
 ### 2. Web app
 

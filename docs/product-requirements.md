@@ -25,7 +25,7 @@ All MVP users are fictional, and all accounts are testnet accounts.
 5. **Verify.** Only the assigned verifier approves the repair or returns it for rework, with a reason fingerprint.
 6. **Rework.** The technician resubmits. Earlier submissions and rejections stay in the history.
 7. **Close.** The coordinator closes the job only after approval. A mistaken or duplicate report can be **cancelled** instead, but not while evidence awaits verification.
-8. **Inspect.** Anyone can read a job's status and full audit history.
+8. **Inspect.** Anyone can read a job's status and audit history (at most 50 entries) for as long as its records are kept or restored; see [retention](security-and-privacy.md#retention-of-the-audit-trail).
 
 ## Functional requirements
 

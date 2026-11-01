@@ -59,7 +59,7 @@ The on-chain audit trail is **not permanent or unconditionally available**. In t
 | Limit | What it means |
 |---|---|
 | **50 entries per job** | Endless rework is cut off after 23 cycles. Since contract [`v0.2.0`](https://github.com/WaterUptime/WaterUptime-SmartContract/releases/tag/v0.2.0_water_uptime_cli28.1.0), a job always keeps room to be closed or cancelled; checked on testnet with a job taken to the limit. |
-| **Storage TTL** | A job's records stay live for about 120 days after its last change. Free (simulated) reads don't extend them, and the network caps any extension at about 180 days. After that the records are archived: still restorable, but unreadable until someone pays to restore them. |
+| **Storage TTL** | A job's records stay live for about 120 days after its last change. Free (simulated) reads don't extend them, and the network caps any extension at about 180 days. After that the records are archived. Today RPC still serves archived records to simulated reads, and anyone can pay to restore them; a restored record lives only about 7 days unless extended again. Neither is guaranteed by this project. |
 | **Events** | RPC nodes keep events for days, not months. |
 | **Testnet resets** | A reset erases every deployment and record. |
 | **Off-chain records** | Descriptions and evidence never go on-chain. Today they exist only in the browser that created them, so a fingerprint can be checked only while that record is kept. |
@@ -68,9 +68,10 @@ Retention procedure ([`docs/RETENTION.md`](https://github.com/WaterUptime/WaterU
 
 - **Extend:** extend every record at least every 90 days. Any funded account can do this; it doesn't need to be the admin. The records of the superseded `v0.1.1` instance were extended to about 2027-04-19; those of the current `v0.2.0` instance last 120 days from their last change.
 - **Export:** export every job and its full history after jobs finish, and at least monthly. Keep each export with its SHA-256, off-chain.
-- **Verify:** check an export against the chain, and again after restoring any archived record.
+- **Verify:** check an export against the chain. Exit status 2 means unchanged but archived.
+- **Restore:** restore every archived record in an export, then extend, then verify again.
 
-Restoring a genuinely archived record has been tested only in the contract's unit tests so far, not on testnet, because nothing there has archived yet. Who keeps doing this, and for how many years, is a governance question for any real deployment ([implementation pathway](implementation-pathway.md)).
+Restoring genuinely archived records has been tested end to end on a local network (`scripts/local-archival-test.sh`, [results](https://github.com/WaterUptime/WaterUptime-SmartContract/blob/main/docs/RETENTION.md#tested-on-a-local-network)), using a test build with shortened TTLs. It has not been done on testnet yet, because nothing there has archived; [contract #15](https://github.com/WaterUptime/WaterUptime-SmartContract/issues/15) tracks the first real case, the superseded `v0.1.0` instance, from late November 2026. Who keeps doing this, and for how many years, is a governance question for any real deployment ([implementation pathway](implementation-pathway.md)).
 
 ## Corrections and mistakes
 
